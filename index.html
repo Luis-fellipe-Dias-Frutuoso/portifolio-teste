@@ -100,12 +100,12 @@
     <section class="fomulario">
         <div class="interface">
             <h2 class="title">FALA <span>COMIGO.</span></h2>
-            <form method="post" action="destinatario.php">
-                <input type="text" name="nome" id="" placeholder="seu nome" required>
-                <input type="text" name="email" id="" placeholder="seu e-mail" required>
-                <input type="text" name="celular" id="" placeholder="seu celular" required>
-                <textarea name="mensagem" id="" placeholder="Digite sua mensagem" required></textarea>
-                <div class="enviar"><input type="submit" value="enviar"></div>
+            <form id="meuFormulario">
+                <input type="text" name="nome" id="nome" placeholder="Seu nome" required>
+                <input type="text" name="email" id="email" placeholder="Seu e-mail" required>
+                <input type="text" name="celular" id="celular" placeholder="Seu celular" required>
+                <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" required></textarea>
+                <div class="enviar"><a href="#" id="enviarLink">Enviar</a></div>
             </form>
         </div>
     </section>
@@ -124,5 +124,30 @@
     </div>
    </footer>
 
+
+  
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('enviarLink').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var celular = document.getElementById('celular').value;
+            var mensagem = document.getElementById('mensagem').value;
+
+            var mensagemWhatsapp = "Nome: " + nome + "%0A" +
+                                "Email: " + email + "%0A" +
+                                "Celular: " + celular + "%0A" +
+                                "Mensagem: " + mensagem;
+
+            var linkWhatsapp = "https://api.whatsapp.com/send?phone=+5521971280219&text=" + mensagemWhatsapp;
+
+            window.open(linkWhatsapp, '_blank');
+        });
+    });
+</script>
+</body>
+</html>
 </body>
 </html>
