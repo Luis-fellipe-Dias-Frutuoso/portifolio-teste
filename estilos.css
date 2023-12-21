@@ -326,7 +326,7 @@ footer.line-top p,a{
     height: 360px;
     }
     .img-topo{
-        display: inline-block;
+        display: none;
     }
     .topo {
         margin:10px 4%;
